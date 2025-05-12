@@ -1,0 +1,223 @@
+[
+  {
+    "id": "a1a1a1a1-1111-aaaa-1111-aaaaaaaaaaaa",
+    "type": "kpiComparisson",
+    "model": {
+      "id": "b1b1b1b1-2222-bbbb-2222-bbbbbbbbbbbb",
+      "title": "IPv4 vs IPv6 Traffic",
+      "subtitle": "Last 24 h",
+      "series": [
+        [
+          {
+            "id": "c1c1c1c1-3333-cccc-3333-cccccccccccc",
+            "xValues": [0, 6, 12, 18, 24],
+            "yValues": [500, 520, 510, 530, 540]
+          }
+        ],
+        [
+          {
+            "id": "c2c2c2c2-3333-cccc-3333-cccccccccccc",
+            "xValues": [0, 6, 12, 18, 24],
+            "yValues": [300, 320, 310, 330, 340]
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "id": "a2a2a2a2-1111-aaaa-1111-aaaaaaaaaaaa",
+    "type": "kpiPie",
+    "model": {
+      "id": "b2b2b2b2-2222-bbbb-2222-bbbbbbbbbbbb",
+      "title": "Protocol Errors",
+      "subtitle": "Last 24 h",
+      "chartData": {
+        "id": "p1p1p1p1-4444-dddd-4444-dddddddddddd",
+        "slices": [
+          {
+            "id": "s1s1s1s1-5555-eeee-5555-eeeeeeeeeeee",
+            "label": "400s",
+            "value": 12,
+            "color": "tertiaryAccent"
+          },
+          {
+            "id": "s2s2s2s2-5555-eeee-5555-eeeeeeeeeeee",
+            "label": "500s",
+            "value": 6,
+            "color": "secondaryAccent"
+          },
+          {
+            "id": "s3s3s3s3-5555-eeee-5555-eeeeeeeeeeee",
+            "label": "300s",
+            "value": 82,
+            "color": "primaryAccent"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "a3a3a3a3-1111-aaaa-1111-aaaaaaaaaaaa",
+    "type": "kpiList",
+    "model": {
+      "id": "b3b3b3b3-2222-bbbb-2222-bbbbbbbbbbbb",
+      "listTitle": "Recent Deploys",
+      "items": [
+        {
+          "id": "l1l1l1l1-6666-ffff-6666-ffffffffffff",
+          "title": "New Edge Version",
+          "value": "2h ago"
+        },
+        {
+          "id": "l2l2l2l2-6666-ffff-6666-ffffffffffff",
+          "title": "Config Rollback",
+          "value": "5h ago"
+        }
+      ]
+    }
+  },
+  {
+    "id": "a4a4a4a4-1111-aaaa-1111-aaaaaaaaaaaa",
+    "type": "kpiBar",
+    "model": {
+      "id": "b4b4b4b4-2222-bbbb-2222-bbbbbbbbbbbb",
+      "title": "Origin Latency",
+      "subtitle": "Last 24 h",
+      "chartData": {
+        "id": "d1d1d1d1-7777-gggg-7777-gggggggggggg",
+        "xValues": [0, 6, 12, 18, 24],
+        "yValues": [100, 105, 102, 98, 95]
+      }
+    }
+  },
+  {
+    "id": "a5a5a5a5-1111-aaaa-1111-aaaaaaaaaaaa",
+    "type": "kpiCard",
+    "model": {
+      "id": "b5b5b5b5-2222-bbbb-2222-bbbbbbbbbbbb",
+      "title": "Current Connections",
+      "leftValue": "85K",
+      "leftUnit": "conns",
+      "rightValue": "+2.2",
+      "rightUnit": "%",
+      "chartData": {
+        "id": "d2d2d2d2-7777-gggg-7777-gggggggggggg",
+        "xValues": [0, 4, 8, 12, 16, 20, 24],
+        "yValues": [80, 82, 84, 85, 86, 88, 90]
+      }
+    }
+  },
+  {
+    "id": "a6a6a6a6-1111-aaaa-1111-aaaaaaaaaaaa",
+    "type": "kpiCard",
+    "model": {
+      "id": "b6b6b6b6-2222-bbbb-2222-bbbbbbbbbbbb",
+      "title": "TLS Handshakes/sec",
+      "leftValue": "45K",
+      "leftUnit": "handshakes",
+      "rightValue": "-1.1",
+      "rightUnit": "%",
+      "chartData": {
+        "id": "d3d3d3d3-7777-gggg-7777-gggggggggggg",
+        "xValues": [0, 4, 8, 12, 16, 20, 24],
+        "yValues": [48, 46, 45, 44, 45, 46, 47]
+      }
+    }
+  },
+  {
+    "id": "a7a7a7a7-1111-aaaa-1111-aaaaaaaaaaaa",
+    "type": "kpiBar",
+    "model": {
+      "id": "b7b7b7b7-2222-bbbb-2222-bbbbbbbbbbbb",
+      "title": "HTTP Status Codes",
+      "subtitle": "Last 24 h",
+      "chartData": {
+        "id": "d4d4d4d4-7777-gggg-7777-gggggggggggg",
+        "xValues": [200, 300, 400, 500],
+        "yValues": [850, 100, 30, 20]
+      }
+    }
+  },
+  {
+    "id": "a8a8a8a8-1111-aaaa-1111-aaaaaaaaaaaa",
+    "type": "kpiList",
+    "model": {
+      "id": "b8b8b8b8-2222-bbbb-2222-bbbbbbbbbbbb",
+      "listTitle": "Recent WAF Blocks",
+      "items": [
+        {
+          "id": "l3l3l3l3-6666-ffff-6666-ffffffffffff",
+          "title": "SQL Injection",
+          "value": "15"
+        },
+        {
+          "id": "l4l4l4l4-6666-ffff-6666-ffffffffffff",
+          "title": "XSS",
+          "value": "8"
+        },
+        {
+          "id": "l5l5l5l5-6666-ffff-6666-ffffffffffff",
+          "title": "CSRF",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  {
+    "id": "a9a9a9a9-1111-aaaa-1111-aaaaaaaaaaaa",
+    "type": "kpiComparisson",
+    "model": {
+      "id": "b9b9b9b9-2222-bbbb-2222-bbbbbbbbbbbb",
+      "title": "HTTP/2 vs HTTP/3 Traffic",
+      "subtitle": "Last 24 h",
+      "series": [
+        [
+          {
+            "id": "c3c3c3c3-3333-cccc-3333-cccccccccccc",
+            "xValues": [0, 6, 12, 18, 24],
+            "yValues": [300, 320, 310, 330, 340]
+          }
+        ],
+        [
+          {
+            "id": "c4c4c4c4-3333-cccc-3333-cccccccccccc",
+            "xValues": [0, 6, 12, 18, 24],
+            "yValues": [200, 220, 230, 240, 260]
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "id": "a0a0a0a0-1111-aaaa-1111-aaaaaaaaaaaa",
+    "type": "kpiPie",
+    "model": {
+      "id": "b0b0b0b0-2222-bbbb-2222-bbbbbbbbbbbb",
+      "title": "Protocol Usage",
+      "subtitle": "Last 24 h",
+      "chartData": {
+        "id": "p2p2p2p2-4444-iiii-4444-iiiiiiiiiiii",
+        "slices": [
+          {
+            "id": "s4s4s4s4-5555-jjjj-5555-jjjjjjjjjjjj",
+            "label": "HTTP/1.1",
+            "value": 30,
+            "color": "primaryAccent"
+          },
+          {
+            "id": "s5s5s5s5-5555-jjjj-5555-jjjjjjjjjjjj",
+            "label": "HTTP/2",
+            "value": 50,
+            "color": "secondaryAccent"
+          },
+          {
+            "id": "s6s6s6s6-5555-jjjj-5555-jjjjjjjjjjjj",
+            "label": "HTTP/3",
+            "value": 20,
+            "color": "tertiaryAccent"
+          }
+        ]
+      }
+    }
+  }
+]
