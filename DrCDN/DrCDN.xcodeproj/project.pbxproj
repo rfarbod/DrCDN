@@ -8,9 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		2727BCA72DD20CF2004D8699 /* AppUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2727BCA62DD20CF2004D8699 /* AppUI */; };
+		27A19F332DDA45B80018CBC2 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A19F322DDA45B80018CBC2 /* WidgetKit.framework */; };
+		27A19F352DDA45B80018CBC2 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A19F342DDA45B80018CBC2 /* SwiftUI.framework */; };
+		27A19F422DDA45B90018CBC2 /* MonitorLiveExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 27A19F302DDA45B80018CBC2 /* MonitorLiveExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		27A19F402DDA45B90018CBC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27D5BEAC2DD1FD2F0016B95B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27A19F2F2DDA45B80018CBC2;
+			remoteInfo = MonitorLiveExtension;
+		};
 		27D5BEC32DD1FD310016B95B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 27D5BEAC2DD1FD2F0016B95B /* Project object */;
@@ -27,13 +37,48 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		27A19F432DDA45B90018CBC2 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				27A19F422DDA45B90018CBC2 /* MonitorLiveExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		27A19F302DDA45B80018CBC2 /* MonitorLiveExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MonitorLiveExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		27A19F322DDA45B80018CBC2 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		27A19F342DDA45B80018CBC2 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		27D5BEB42DD1FD2F0016B95B /* DrCDN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrCDN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D5BEC22DD1FD310016B95B /* DrCDNTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrCDNTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D5BECC2DD1FD310016B95B /* DrCDNUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrCDNUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		27A19F462DDA45B90018CBC2 /* Exceptions for "MonitorLive" folder in "MonitorLiveExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 27A19F2F2DDA45B80018CBC2 /* MonitorLiveExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		27A19F362DDA45B80018CBC2 /* MonitorLive */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				27A19F462DDA45B90018CBC2 /* Exceptions for "MonitorLive" folder in "MonitorLiveExtension" target */,
+			);
+			path = MonitorLive;
+			sourceTree = "<group>";
+		};
 		27D5BEB62DD1FD2F0016B95B /* DrCDN */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = DrCDN;
@@ -52,6 +97,15 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		27A19F2D2DDA45B80018CBC2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27A19F352DDA45B80018CBC2 /* SwiftUI.framework in Frameworks */,
+				27A19F332DDA45B80018CBC2 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		27D5BEB12DD1FD2F0016B95B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -77,12 +131,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27A19F312DDA45B80018CBC2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27A19F322DDA45B80018CBC2 /* WidgetKit.framework */,
+				27A19F342DDA45B80018CBC2 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		27D5BEAB2DD1FD2F0016B95B = {
 			isa = PBXGroup;
 			children = (
 				27D5BEB62DD1FD2F0016B95B /* DrCDN */,
 				27D5BEC52DD1FD310016B95B /* DrCDNTests */,
 				27D5BECF2DD1FD310016B95B /* DrCDNUITests */,
+				27A19F362DDA45B80018CBC2 /* MonitorLive */,
+				27A19F312DDA45B80018CBC2 /* Frameworks */,
 				27D5BEB52DD1FD2F0016B95B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,6 +158,7 @@
 				27D5BEB42DD1FD2F0016B95B /* DrCDN.app */,
 				27D5BEC22DD1FD310016B95B /* DrCDNTests.xctest */,
 				27D5BECC2DD1FD310016B95B /* DrCDNUITests.xctest */,
+				27A19F302DDA45B80018CBC2 /* MonitorLiveExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,6 +166,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		27A19F2F2DDA45B80018CBC2 /* MonitorLiveExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27A19F472DDA45B90018CBC2 /* Build configuration list for PBXNativeTarget "MonitorLiveExtension" */;
+			buildPhases = (
+				27A19F2C2DDA45B80018CBC2 /* Sources */,
+				27A19F2D2DDA45B80018CBC2 /* Frameworks */,
+				27A19F2E2DDA45B80018CBC2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				27A19F362DDA45B80018CBC2 /* MonitorLive */,
+			);
+			name = MonitorLiveExtension;
+			packageProductDependencies = (
+			);
+			productName = MonitorLiveExtension;
+			productReference = 27A19F302DDA45B80018CBC2 /* MonitorLiveExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		27D5BEB32DD1FD2F0016B95B /* DrCDN */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27D5BED62DD1FD310016B95B /* Build configuration list for PBXNativeTarget "DrCDN" */;
@@ -107,10 +195,12 @@
 				27D5BEB02DD1FD2F0016B95B /* Sources */,
 				27D5BEB12DD1FD2F0016B95B /* Frameworks */,
 				27D5BEB22DD1FD2F0016B95B /* Resources */,
+				27A19F432DDA45B90018CBC2 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				27A19F412DDA45B90018CBC2 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				27D5BEB62DD1FD2F0016B95B /* DrCDN */,
@@ -179,6 +269,9 @@
 				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
+					27A19F2F2DDA45B80018CBC2 = {
+						CreatedOnToolsVersion = 16.3;
+					};
 					27D5BEB32DD1FD2F0016B95B = {
 						CreatedOnToolsVersion = 16.3;
 					};
@@ -212,11 +305,19 @@
 				27D5BEB32DD1FD2F0016B95B /* DrCDN */,
 				27D5BEC12DD1FD310016B95B /* DrCDNTests */,
 				27D5BECB2DD1FD310016B95B /* DrCDNUITests */,
+				27A19F2F2DDA45B80018CBC2 /* MonitorLiveExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		27A19F2E2DDA45B80018CBC2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		27D5BEB22DD1FD2F0016B95B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -241,6 +342,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		27A19F2C2DDA45B80018CBC2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		27D5BEB02DD1FD2F0016B95B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -265,6 +373,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		27A19F412DDA45B90018CBC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27A19F2F2DDA45B80018CBC2 /* MonitorLiveExtension */;
+			targetProxy = 27A19F402DDA45B90018CBC2 /* PBXContainerItemProxy */;
+		};
 		27D5BEC42DD1FD310016B95B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 27D5BEB32DD1FD2F0016B95B /* DrCDN */;
@@ -278,6 +391,65 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		27A19F442DDA45B90018CBC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T8D29U4J3F;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MonitorLive/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MonitorLive;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.something.DrCDN.DrCDN.MonitorLive;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		27A19F452DDA45B90018CBC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T8D29U4J3F;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MonitorLive/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MonitorLive;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.something.DrCDN.DrCDN.MonitorLive;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		27D5BED42DD1FD310016B95B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -413,7 +585,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.4;
@@ -451,7 +623,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.4;
@@ -557,6 +729,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		27A19F472DDA45B90018CBC2 /* Build configuration list for PBXNativeTarget "MonitorLiveExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27A19F442DDA45B90018CBC2 /* Debug */,
+				27A19F452DDA45B90018CBC2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		27D5BEAF2DD1FD2F0016B95B /* Build configuration list for PBXProject "DrCDN" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

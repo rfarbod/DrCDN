@@ -18,6 +18,7 @@ struct ContentView: View {
                 KPIWrapperView(model: item)
             }
         }
+        .background(Color.primaryBackground)
     }
 }
 

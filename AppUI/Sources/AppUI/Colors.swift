@@ -15,4 +15,5 @@ public extension Color {
     static let tertiaryAccent = Color("tertiaryAccent", bundle: .module)
     static let textHigh = Color("textHigh", bundle: .module)
     static let textMed = Color("textMed", bundle: .module)
+    static let primaryBackground = Color("primaryBackground", bundle: .module)
 }

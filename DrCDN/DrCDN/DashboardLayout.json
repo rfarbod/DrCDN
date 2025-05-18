@@ -38,21 +38,32 @@
             "id": "s1s1s1s1-5555-eeee-5555-eeeeeeeeeeee",
             "label": "400s",
             "value": 12,
-            "color": "tertiaryAccent"
+            "color": "tertiaryAccent",
+            "angularInset": 3.0,
+            "opacity": 0.85,
+            "cornerRadius": 4
           },
           {
             "id": "s2s2s2s2-5555-eeee-5555-eeeeeeeeeeee",
             "label": "500s",
             "value": 6,
-            "color": "secondaryAccent"
+            "color": "secondaryAccent",
+            "angularInset": 3.0,
+            "opacity": 0.85,
+            "cornerRadius": 4
           },
           {
             "id": "s3s3s3s3-5555-eeee-5555-eeeeeeeeeeee",
             "label": "300s",
             "value": 82,
-            "color": "primaryAccent"
+            "color": "primaryAccent",
+            "angularInset": 3.0,
+            "opacity": 0.85,
+            "cornerRadius": 4,
+            "innerRadius": 20
           }
-        ]
+        ],
+        "opacityRatio": 1.33
       }
     }
   },
@@ -202,21 +213,34 @@
             "id": "s4s4s4s4-5555-jjjj-5555-jjjjjjjjjjjj",
             "label": "HTTP/1.1",
             "value": 30,
-            "color": "primaryAccent"
+            "color": "primaryAccent",
+            "angularInset": 3.0,
+            "opacity": 0.85,
+            "cornerRadius": 6,
+            "innerRadius": 60
           },
           {
             "id": "s5s5s5s5-5555-jjjj-5555-jjjjjjjjjjjj",
             "label": "HTTP/2",
             "value": 50,
-            "color": "secondaryAccent"
+            "color": "secondaryAccent",
+            "angularInset": 3.0,
+            "opacity": 0.85,
+            "cornerRadius": 6,
+            "innerRadius": 60
           },
           {
             "id": "s6s6s6s6-5555-jjjj-5555-jjjjjjjjjjjj",
             "label": "HTTP/3",
             "value": 20,
-            "color": "tertiaryAccent"
+            "color": "tertiaryAccent",
+            "angularInset": 3.0,
+            "opacity": 0.85,
+            "cornerRadius": 6,
+            "innerRadius": 60
           }
-        ]
+        ],
+        "opacityRatio": 1.33
       }
     }
   }

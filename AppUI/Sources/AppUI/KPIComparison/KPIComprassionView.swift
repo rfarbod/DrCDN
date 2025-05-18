@@ -38,6 +38,7 @@ public struct KPIComprassionView: View {
                             
                             ForEach(Array(data.xValues.enumerated()), id: \.offset) { offset, x in
                                 let y = data.yValues[offset]
+    
                                 
                                 LineMark(
                                     x: .value("X", x),

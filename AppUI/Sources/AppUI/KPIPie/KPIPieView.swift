@@ -9,6 +9,10 @@ import SwiftUI
 import Charts
 
 public struct KPIPieChartView: View {
+    private enum Constants {
+        static let mainChartFrameSize: CGSize = .init(width: 250, height: 250)
+    }
+    
     public let model: KPIPieModel
     
     public init(model: KPIPieModel) {
@@ -27,20 +31,14 @@ public struct KPIPieChartView: View {
             
             ZStack {
                 if let pie = model.chartData {
-                    Chart {
-                        ForEach(pie.slices) { slice in
-                            SectorMark(
-                                angle: .value("Value", slice.value),
-                                angularInset: 2
-                            )
-                            .foregroundStyle(Color("\(slice.color)", bundle: .module)                            .opacity(0.7)
-                            )
-                        }
-                    }
-                    .zIndex(1)
-                    .chartXAxis(.hidden)
-                    .chartYAxis(.hidden)
-                    .frame(width: 120, height: 120)
+                    KPIPieChart(model: .init(
+                        slices: pie.slices,
+                        frame: .init(
+                            width: Constants.mainChartFrameSize.width,
+                            height: Constants.mainChartFrameSize.height
+                        )
+                    ))
+                    .zIndex(2)
                     
                     Circle()
                         .fill(Color.cardBG)
@@ -54,26 +52,14 @@ public struct KPIPieChartView: View {
                 }
                 
                 if let pie = model.chartData {
-                    Chart {
-                        ForEach(pie.slices) { slice in
-                            SectorMark(
-                                angle: .value("Value", slice.value),
-                                angularInset: 2
-                            )
-                            .foregroundStyle(
-                                Color("\(slice.color)", bundle: .module)
-                            )
-                        }
-                    }
-                    .chartXAxis(.hidden)
-                    .chartYAxis(.hidden)
-                    .frame(width: 95, height: 95)
-                    .zIndex(2)
-                    
-                    Circle()
-                        .fill(Color.cardBG)
-                        .frame(width: 60, height: 60)
-                        .zIndex(2)
+                    KPIPieChart(model: .init(
+                        slices: pie.slices,
+                        frame: .init(
+                            width: Constants.mainChartFrameSize.width / (model.chartData?.opacityRatio ?? 1),
+                            height: Constants.mainChartFrameSize.height / (model.chartData?.opacityRatio ?? 1)
+                        )
+                    ))
+                    .zIndex(1)
                 }
             }
             
@@ -94,6 +80,7 @@ public struct KPIPieChartView: View {
         }
         .padding(16)
         .background(Color.cardBG)
+        .frame(maxWidth: .infinity)
         .cornerRadius(16)
     }
 }

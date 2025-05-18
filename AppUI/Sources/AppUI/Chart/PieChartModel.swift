@@ -10,8 +10,13 @@ import SwiftUI
 
 public struct PieChartModel: Sendable, Codable, Hashable {
     public var slices: [SliceModel]
+    public var opacityRatio: Double
     
-    public init(slices: [SliceModel]) {
+    public init(
+        slices: [SliceModel],
+        opacityRation: Double
+    ) {
         self.slices = slices
+        self.opacityRatio = opacityRation
     }
 }

@@ -13,12 +13,30 @@ struct SparklineChartView: View {
 
     var body: some View {
         Chart {
-            ForEach(Array(zip(data.xValues, data.yValues)), id: \ .0) { x, y in
+            ForEach(Array(zip(data.xValues, data.yValues)), id: \.0) { x, y in
+                AreaMark(
+                    x: .value("X", x),
+                    y: .value("Y", y)
+                )
+                .interpolationMethod(.catmullRom)
+                .foregroundStyle(
+                    LinearGradient(
+                        gradient: Gradient(stops: [
+                            .init(color: Color.blue.opacity(0.3), location: 0),
+                            .init(color: Color.blue.opacity(0.0), location: 1)
+                        ]),
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                )
+
                 LineMark(
                     x: .value("X", x),
                     y: .value("Y", y)
                 )
                 .interpolationMethod(.catmullRom)
+                .foregroundStyle(Color.blue)
+                .lineStyle(StrokeStyle(lineWidth: 2))
             }
         }
         .chartXAxis(.hidden)
