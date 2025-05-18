@@ -10,46 +10,73 @@ import Charts
 
 public struct KPIPieChartView: View {
     public let model: KPIPieModel
-
+    
     public init(model: KPIPieModel) {
         self.model = model
     }
-
+    
     public var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text(model.title)
                 .font(.headline)
                 .foregroundColor(.textHigh)
-
+            
             Text(model.subtitle)
                 .font(.subheadline)
                 .foregroundColor(.textMed)
-
+            
             ZStack {
                 if let pie = model.chartData {
                     Chart {
                         ForEach(pie.slices) { slice in
                             SectorMark(
-                                angle: .value("Value", slice.value)
+                                angle: .value("Value", slice.value),
+                                angularInset: 2
                             )
-                            .foregroundStyle(Color("\(slice.color)", bundle: .module))
+                            .foregroundStyle(Color("\(slice.color)", bundle: .module)                            .opacity(0.7)
+                            )
                         }
                     }
+                    .zIndex(1)
                     .chartXAxis(.hidden)
                     .chartYAxis(.hidden)
                     .frame(width: 120, height: 120)
-
+                    
                     Circle()
                         .fill(Color.cardBG)
                         .frame(width: 72, height: 72)
-
+                        .zIndex(1)
+                    
                     let total = Int(pie.slices.reduce(0) { $0 + $1.value })
                     Text("\(total)")
                         .font(.system(size: 32, weight: .bold))
                         .foregroundColor(.textHigh)
                 }
+                
+                if let pie = model.chartData {
+                    Chart {
+                        ForEach(pie.slices) { slice in
+                            SectorMark(
+                                angle: .value("Value", slice.value),
+                                angularInset: 2
+                            )
+                            .foregroundStyle(
+                                Color("\(slice.color)", bundle: .module)
+                            )
+                        }
+                    }
+                    .chartXAxis(.hidden)
+                    .chartYAxis(.hidden)
+                    .frame(width: 95, height: 95)
+                    .zIndex(2)
+                    
+                    Circle()
+                        .fill(Color.cardBG)
+                        .frame(width: 60, height: 60)
+                        .zIndex(2)
+                }
             }
-
+            
             if let pie = model.chartData {
                 VStack(alignment: .leading, spacing: 8) {
                     ForEach(Array(pie.slices.enumerated()), id: \.element.id) { _, slice in
