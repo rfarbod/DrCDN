@@ -2,29 +2,20 @@
 //  MonitorLiveLiveActivity.swift
 //  MonitorLive
 //
-//  Created by Farbod Rahiminik on 5/18/25.
+//  Created by Farbod Rahiminik on 5/25/25.
 //
 
+import AppUI
 import ActivityKit
 import WidgetKit
 import SwiftUI
-
-struct MonitorLiveAttributes: ActivityAttributes {
-    public struct ContentState: Codable, Hashable {
-        // Dynamic stateful properties about your activity go here!
-        var emoji: String
-    }
-
-    // Fixed non-changing properties about your activity go here!
-    var name: String
-}
 
 struct MonitorLiveLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: MonitorLiveAttributes.self) { context in
             // Lock screen/banner UI goes here
             VStack {
-                Text("Hello \(context.state.emoji)")
+                SparklineChartView(data: context.state.chartModel)
             }
             .activityBackgroundTint(Color.cyan)
             .activitySystemActionForegroundColor(Color.black)
@@ -40,15 +31,15 @@ struct MonitorLiveLiveActivity: Widget {
                     Text("Trailing")
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-                    Text("Bottom \(context.state.emoji)")
+                    Text("Is Monitoring")
                     // more content
                 }
             } compactLeading: {
                 Text("L")
             } compactTrailing: {
-                Text("T \(context.state.emoji)")
+                Text("Monitoring")
             } minimal: {
-                Text(context.state.emoji)
+                Text("Monitoring")
             }
             .widgetURL(URL(string: "http://www.apple.com"))
             .keylineTint(Color.red)
@@ -60,21 +51,4 @@ extension MonitorLiveAttributes {
     fileprivate static var preview: MonitorLiveAttributes {
         MonitorLiveAttributes(name: "World")
     }
-}
-
-extension MonitorLiveAttributes.ContentState {
-    fileprivate static var smiley: MonitorLiveAttributes.ContentState {
-        MonitorLiveAttributes.ContentState(emoji: "😀")
-     }
-     
-     fileprivate static var starEyes: MonitorLiveAttributes.ContentState {
-         MonitorLiveAttributes.ContentState(emoji: "🤩")
-     }
-}
-
-#Preview("Notification", as: .content, using: MonitorLiveAttributes.preview) {
-   MonitorLiveLiveActivity()
-} contentStates: {
-    MonitorLiveAttributes.ContentState.smiley
-    MonitorLiveAttributes.ContentState.starEyes
 }

@@ -18,6 +18,11 @@ struct ContentView: View {
                 KPIWrapperView(model: item)
             }
         }
+        .onAppear(perform: {
+            #if os(iOS)
+            viewModel.startLiveActivity()
+            #endif
+        })
         .background(Color.primaryBackground)
     }
 }

@@ -8,10 +8,14 @@
 import SwiftUI
 import Charts
 
-struct SparklineChartView: View {
+public struct SparklineChartView: View {
     let data: ChartModel
+    
+    public init(data: ChartModel) {
+        self.data = data
+    }
 
-    var body: some View {
+    public var body: some View {
         Chart {
             ForEach(Array(zip(data.xValues, data.yValues)), id: \.0) { x, y in
                 AreaMark(
