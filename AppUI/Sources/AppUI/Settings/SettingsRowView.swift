@@ -29,6 +29,8 @@ public struct SettingsRowView: View {
                 .scaledToFit()
                 .frame(width: Constants.rowSize, height: Constants.rowSize)
         }
+        .padding(16)
         .background(Color.cardBG)
+        .cornerRadius(16)
     }
 }
