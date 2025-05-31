@@ -21,6 +21,7 @@ final class LiveActivityTestViewModel: ObservableObject {
     }
     
     func getLiveActivityTypes() {
+        #if os(iOS)
         loadItems()
         
         model.types = [
@@ -61,6 +62,7 @@ final class LiveActivityTestViewModel: ObservableObject {
                 }
             )
         ]
+        #endif
     }
     
     func loadItems() {
