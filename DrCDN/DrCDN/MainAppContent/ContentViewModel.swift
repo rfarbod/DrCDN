@@ -50,22 +50,22 @@ final class ContentViewModel: ObservableObject {
     
     #if os(iOS)
     func startLiveActivity() {
-        let chartData = model.kpiItems.
-        
-        let attributes = MonitorLiveAttributes(name: "Something")
-        let initialState = MonitorLiveAttributes.ContentState(chartModel: model.)
-
-        do {
-            let activity = try Activity.request(
-                attributes: attributes,
-                content: .init(state: initialState, staleDate: Date.distantFuture),
-                pushType: nil
-            )
-            
-            print("Live Activity started: \(activity.id)")
-        } catch {
-            print("Error starting Live Activity: \(error)")
-        }
+//        let chartData = model.kpiItems.
+//        
+//        let attributes = MonitorLiveAttributes(name: "Something")
+//        let initialState = MonitorLiveAttributes.ContentState(chartModel: model.)
+//
+//        do {
+//            let activity = try Activity.request(
+//                attributes: attributes,
+//                content: .init(state: initialState, staleDate: Date.distantFuture),
+//                pushType: nil
+//            )
+//            
+//            print("Live Activity started: \(activity.id)")
+//        } catch {
+//            print("Error starting Live Activity: \(error)")
+//        }
     }
     #endif
 }
