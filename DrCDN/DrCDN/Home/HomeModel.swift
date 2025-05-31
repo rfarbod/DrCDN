@@ -7,7 +7,7 @@
 
 import AppUI
 
-struct ContentModel {
+struct HomeModel {
     var kpiItems: [KPIWrapperModel]
     
     init(
@@ -17,6 +17,6 @@ struct ContentModel {
     }
 }
 
-extension ContentModel {
-    static let `default`: ContentModel = .init(kpiItems: [])
+extension HomeModel {
+    static let `default`: HomeModel = .init(kpiItems: [])
 }

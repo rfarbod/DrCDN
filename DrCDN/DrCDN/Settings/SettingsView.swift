@@ -26,9 +26,11 @@ struct SettingsView: View {
                 .onAppear {
                     viewModel.getSettingsItems()
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .frame(maxWidth: .infinity)
                 .background(Color.primaryBackground)
             }
+            .background(Color.primaryBackground)
         }
+        .background(Color.primaryBackground)
     }
 }

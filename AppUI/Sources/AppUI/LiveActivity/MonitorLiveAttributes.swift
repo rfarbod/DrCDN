@@ -11,10 +11,18 @@ import WidgetKit
 
 public struct MonitorLiveAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
-        public var chartModel: ChartModel
+        public var barModel: KPIBarViewModel?
+        public var pieModel: KPIPieModel?
+        public var cardModel: KPICardModel?
         
-        public init(chartModel: ChartModel) {
-            self.chartModel = chartModel
+        public init(
+            barModel: KPIBarViewModel? = nil,
+            pieModel: KPIPieModel? = nil,
+            cardModel: KPICardModel? = nil
+        ) {
+            self.barModel = barModel
+            self.pieModel = pieModel
+            self.cardModel = cardModel
         }
     }
 

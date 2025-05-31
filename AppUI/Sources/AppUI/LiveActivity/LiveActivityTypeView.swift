@@ -39,6 +39,9 @@ public struct LiveActivityTypeView: View {
                 .frame(width: 76, height: 76)
                 .padding()
         }
+        .onTapGesture {
+            model.onTap?()
+        }
         .padding(16)
         .background(Color.cardBG)
         .cornerRadius(16)

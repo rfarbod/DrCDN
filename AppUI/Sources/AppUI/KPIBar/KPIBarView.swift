@@ -36,7 +36,7 @@ public struct KPIBarView: View {
                     }
                 }
                 .chartYAxis(.hidden)
-                .frame(height: 120)
+                .frame(maxHeight: 120)
             }
         }
         .padding(16)

@@ -12,8 +12,8 @@ import Foundation
 import Combine
 import AppUI
 
-final class ContentViewModel: ObservableObject {
-    @Published var model: ContentModel = .default
+final class HomeViewModel: ObservableObject {
+    @Published var model: HomeModel = .default
     private var cancellables = Set<AnyCancellable>()
 
     public init() {
@@ -38,7 +38,7 @@ final class ContentViewModel: ObservableObject {
                 )
 
                 DispatchQueue.main.async {
-                    self.model = ContentModel(kpiItems: wrappers.map({ model in
+                    self.model = HomeModel(kpiItems: wrappers.map({ model in
                         return .init(type: model.type)
                     }))
                 }

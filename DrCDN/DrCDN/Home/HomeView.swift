@@ -9,8 +9,8 @@ import SwiftUI
 import AppUI
 import Combine
 
-struct ContentView: View {
-    @ObservedObject var viewModel: ContentViewModel = .init()
+struct HomeView: View {
+    @ObservedObject var viewModel: HomeViewModel = .init()
     
     var body: some View {
         VStack {
@@ -20,9 +20,6 @@ struct ContentView: View {
                 }
             }
             .onAppear(perform: {
-                #if os(iOS)
-                viewModel.startLiveActivity()
-                #endif
             })
             .background(Color.primaryBackground)
         }
@@ -30,5 +27,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    HomeView()
 }

@@ -13,17 +13,30 @@ import SwiftUI
 struct MonitorLiveLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: MonitorLiveAttributes.self) { context in
-            // Lock screen/banner UI goes here
             VStack {
-                SparklineChartView(data: context.state.chartModel)
+                if let barModel = context.state.barModel {
+                    KPIBarView(model: barModel)
+                }
+                
+                if let pieModel = context.state.pieModel {
+                    KPIPieChart(model: .init(
+                        slices: pieModel.chartData?.slices ?? [],
+                        frame: .init(
+                            width: 75,
+                            height: 75
+                        )
+                    ))
+                }
+                
+                if let cardModel = context.state.cardModel {
+                    KPICardView(model: cardModel)
+                }
             }
-            .activityBackgroundTint(Color.cyan)
+            .activityBackgroundTint(Color.primaryBackground)
             .activitySystemActionForegroundColor(Color.black)
 
         } dynamicIsland: { context in
             DynamicIsland {
-                // Expanded UI goes here.  Compose the expanded UI through
-                // various regions, like leading/trailing/center/bottom
                 DynamicIslandExpandedRegion(.leading) {
                     Text("Leading")
                 }
@@ -31,8 +44,23 @@ struct MonitorLiveLiveActivity: Widget {
                     Text("Trailing")
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-                    Text("Is Monitoring")
-                    // more content
+                    if let barModel = context.state.barModel {
+                        KPIBarView(model: barModel)
+                    }
+                    
+                    if let pieModel = context.state.pieModel {
+                        KPIPieChart(model: .init(
+                            slices: pieModel.chartData?.slices ?? [],
+                            frame: .init(
+                                width: 75,
+                                height: 75
+                            )
+                        ))
+                    }
+                    
+                    if let cardModel = context.state.cardModel {
+                        KPICardView(model: cardModel)
+                    }
                 }
             } compactLeading: {
                 Text("L")
