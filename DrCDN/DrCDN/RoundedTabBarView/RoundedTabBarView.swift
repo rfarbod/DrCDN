@@ -9,10 +9,10 @@ import AppUI
 import SwiftUI
 
 struct RoundedTabBarView: View {
-    @State private var selectedTab = 0
+    @State private var selectedTab: Int
     
     init(selectedTab: Int = 0) {
-        _selectedTab = .init(initialValue: selectedTab)
+        self.selectedTab = selectedTab
     }
 
     var body: some View {
@@ -22,7 +22,7 @@ struct RoundedTabBarView: View {
             VStack(spacing: 0) {
                 contentView(for: selectedTab)
                     .clipShape(RoundedCorner(radius: 20, corners: [.bottomLeft, .bottomRight]))
-                    .background(Color(.white))
+                    .background(Color.primaryBackground)
             }
             .padding(.bottom, 90)
 
@@ -35,24 +35,11 @@ struct RoundedTabBarView: View {
     private func contentView(for tab: Int) -> some View {
         switch tab {
         case 0:
-            DashboardCoordinator()
+            ContentView()
         case 1:
-            ModulesCoordinator()
-        case 2:
-            QRCodeCoordinator(coordinatorViewModel: .init())
-        case 3:
-            SelectAreaView(viewModel: .init(
-                coordinator: .init(),
-                repository: dashboardRepository
-            ))
-        case 4:
-            SettingsCoordinatorView(viewModel: .init())
-
-        case 5:
-            ProfileView(viewModel: .init(coordinator: .init(), repository: dashboardRepository))
-
+            SettingsView(viewModel: .init(model: .init(settings: [])))
         default:
-            DashboardCoordinator()
+            EmptyView()
         }
     }
 }

@@ -5,6 +5,8 @@
 //  Created by Farbod Rahiminik on 5/31/25.
 //
 
+import Foundation
+
 public struct SettingsRowModel: Identifiable, Sendable {
     public let id: String
     public let image: String
@@ -26,6 +28,7 @@ public struct SettingsRowModel: Identifiable, Sendable {
 
 public extension SettingsRowModel {
     static let `default`: SettingsRowModel = .init(
+        id: UUID().uuidString,
         image: "",
         title: "",
         leftImage: ""

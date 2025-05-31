@@ -8,17 +8,19 @@
 import SwiftUI
 
 public struct CustomTabBar: View {
-    @Binding var selectedTab: Int
+    @Binding public var selectedTab: Int
 
     let icons = ["house", "gear"]
     let labels = ["Home", "Settings"]
-
+    
+    public init(selectedTab: Binding<Int>) {
+        self._selectedTab = selectedTab
+    }
+    
     public var body: some View {
         VStack(spacing: 0) {
-            Divider().background(.white.opacity(0.2))
-
             HStack(spacing: 0) {
-                ForEach(0..<5) { index in
+                ForEach(0..<2) { index in
                     Button(action: {
                         withAnimation(.easeInOut) {
                             selectedTab = index
@@ -28,15 +30,15 @@ public struct CustomTabBar: View {
                             ZStack {
                                 if selectedTab == index {
                                     RoundedRectangle(cornerRadius: 16)
-                                        .fill(Color.white.opacity(0.15))
+                                        .fill(Color.primaryBackground.opacity(0.15))
                                         .frame(width: 64, height: 32)
                                         .overlay(
-                                            Image(icons[index])
+                                            Image(systemName: icons[index])
                                                 .renderingMode(.template)
                                                 .foregroundColor(.white.opacity(0.6))
                                         )
                                 } else {
-                                    Image(icons[index])
+                                    Image(systemName: icons[index])
                                         .renderingMode(.template)
                                         .foregroundColor(.white.opacity(0.6))
                                 }
@@ -55,8 +57,7 @@ public struct CustomTabBar: View {
             .padding(.horizontal, 0)
             .frame(height: 90)
             .background(
-                Color(red: 13/255, green: 28/255, blue: 46/255)
-                    .clipShape(RoundedCorner(radius: 20, corners: [.topLeft, .topRight]))
+                Color(Color.primaryBackground)
             )
         }
         .ignoresSafeArea()

@@ -19,7 +19,12 @@ public struct SettingsRowView: View {
     }
     
     public var body: some View {
-        VStack {
+        HStack {
+            Image(systemName: model.image)
+                .resizable()
+                .scaledToFit()
+                .frame(width: Constants.rowSize, height: Constants.rowSize)
+            
             Text(model.title)
                 .font(.title3)
                 .fontWeight(.semibold)
@@ -29,6 +34,7 @@ public struct SettingsRowView: View {
                 .scaledToFit()
                 .frame(width: Constants.rowSize, height: Constants.rowSize)
         }
+        .frame(maxWidth: .infinity)
         .padding(16)
         .background(Color.cardBG)
         .cornerRadius(16)
