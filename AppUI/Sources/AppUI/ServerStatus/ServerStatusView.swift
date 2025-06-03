@@ -10,11 +10,15 @@ import SwiftUI
 public struct ServerStatusView: View {
     let model: ServerStautsModel
     
+    public init(model: ServerStautsModel) {
+        self.model = model
+    }
+    
     public var body: some View {
         VStack(alignment: .leading) {
             Text(model.title)
                 .fontWeight(.semibold)
-                .padding()
+                .padding([.top, .leading, .trailing])
             
             HStack() {
                 Circle()
@@ -25,9 +29,9 @@ public struct ServerStatusView: View {
                     .font(.title)
                     .fontWeight(.bold)
             }
-            .padding()
+            .padding([.bottom, .leading, .trailing])
         }
-        .background(Color.primaryBackground)
+        .background(Color.cardBG)
         .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }
