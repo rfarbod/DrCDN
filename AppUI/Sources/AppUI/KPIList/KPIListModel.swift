@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct KPIListModel: Sendable, Codable, Hashable, Equatable {
+public struct KPIListModel: Sendable, Hashable, Equatable {
     public let id: String? = UUID().uuidString
     public let listTitle: String
     public let items: [ListItem]
@@ -23,7 +23,6 @@ public struct KPIListModel: Sendable, Codable, Hashable, Equatable {
     public static func == (lhs: Self, rhs: Self) -> Bool {
         rhs.id == lhs.id
     }
-
 }
 
 public extension KPIListModel {

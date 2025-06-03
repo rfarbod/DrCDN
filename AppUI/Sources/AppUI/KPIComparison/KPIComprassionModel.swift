@@ -5,7 +5,7 @@
 //  Created by Farbod Rahiminik on 5/11/25.
 //
 
-public struct KPIComparisonModel: Sendable, Codable, Hashable {
+public struct KPIComparisonModel: Sendable, Hashable {
     public let title: String
     public let subtitle: String?
     public let series: [[ChartModel]]

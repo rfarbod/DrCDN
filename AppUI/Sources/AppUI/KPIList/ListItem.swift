@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct ListItem: Sendable, Codable, Hashable {
+public struct ListItem: Sendable, Hashable {
     let title: String
     let value: String
     

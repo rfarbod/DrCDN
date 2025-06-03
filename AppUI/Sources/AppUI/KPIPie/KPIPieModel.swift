@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct KPIPieModel: Sendable, Codable, Hashable, Equatable {
+public struct KPIPieModel: Sendable, Hashable, Equatable {
     public let id: String? = UUID().uuidString
     public var title: String
     public var subtitle: String
@@ -35,3 +35,5 @@ public extension KPIPieModel {
         chartData: nil
     )
 }
+
+extension KPIPieModel: Codable {}

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct KPICardModel: Sendable, Codable, Hashable {
+public struct KPICardModel: Sendable, Hashable {
     public var title: String
     public var leftValue: String
     public var leftUnit: String
@@ -42,3 +42,5 @@ public extension KPICardModel {
         chartData: nil
     )
 }
+
+extension KPICardModel: Codable {}

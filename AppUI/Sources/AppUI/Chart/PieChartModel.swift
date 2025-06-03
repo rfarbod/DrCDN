@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-public struct PieChartModel: Sendable, Codable, Hashable {
+public struct PieChartModel: Sendable, Hashable {
     public var slices: [SliceModel]
     public var opacityRatio: Double
     
@@ -20,3 +20,5 @@ public struct PieChartModel: Sendable, Codable, Hashable {
         self.opacityRatio = opacityRation
     }
 }
+
+extension PieChartModel: Codable {}

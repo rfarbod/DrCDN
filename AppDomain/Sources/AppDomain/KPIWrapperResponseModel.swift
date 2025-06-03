@@ -1,23 +1,19 @@
 //
-//  KPIWrapperCodableModel.swift
-//  AppUI
+//  KPIWrapperModel.swift
+//  AppDomain
 //
-//  Created by Farbod Rahiminik on 5/11/25.
+//  Created by Farbod Rahiminik on 5/12/25.
 //
 
 import Foundation
 
 // MARK: – Dynamic Wrapper
 
-public struct KPIWrapperCodableModel: Codable {
+public struct KPIWrapperResponseModel: Codable {
     public let type: KPIViewType
 
     enum CodingKeys: String, CodingKey {
         case type, model
-    }
-
-    public init(type: KPIViewType) {
-        self.type = type
     }
 
     public init(from decoder: Decoder) throws {
@@ -26,23 +22,23 @@ public struct KPIWrapperCodableModel: Codable {
 
         switch typeName {
         case "kpiBar":
-            let barModel = try container.decode(KPIBarViewModel.self, forKey: .model)
+            let barModel = try container.decode(KPIBarResponseModel.self, forKey: .model)
             self.type = .kpiBar(barModel)
 
         case "kpiCard":
-            let cardModel = try container.decode(KPICardModel.self, forKey: .model)
+            let cardModel = try container.decode(KPICardResponseModel.self, forKey: .model)
             self.type = .kpiCard(cardModel)
 
         case "kpiComparisson":
-            let cmp = try container.decode(KPIComparisonModel.self, forKey: .model)
+            let cmp = try container.decode(KPIComparisonResponseModel.self, forKey: .model)
             self.type = .kpiComparisson(cmp)
 
         case "kpiList":
-            let listModel = try container.decode(KPIListModel.self, forKey: .model)
+            let listModel = try container.decode(KPIListResponseModel.self, forKey: .model)
             self.type = .kpiList(listModel)
 
         case "kpiPie":
-            let pieModel = try container.decode(KPIPieModel.self, forKey: .model)
+            let pieModel = try container.decode(KPIPieResponseModel.self, forKey: .model)
             self.type = .kpiPie(pieModel)
 
         default:
@@ -78,4 +74,14 @@ public struct KPIWrapperCodableModel: Codable {
             try container.encode(pie, forKey: .model)
         }
     }
+}
+
+// MARK: – Enum of Cases
+
+public enum KPIViewType {
+    case kpiBar(KPIBarResponseModel)
+    case kpiCard(KPICardResponseModel)
+    case kpiComparisson(KPIComparisonResponseModel)
+    case kpiList(KPIListResponseModel)
+    case kpiPie(KPIPieResponseModel)
 }

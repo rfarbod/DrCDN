@@ -1,13 +1,13 @@
 //
-//  SliceModel.swift
-//  AppUI
+//  SliceResponseModel.swift
+//  AppDomain
 //
-//  Created by Farbod Rahiminik on 5/11/25.
+//  Created by Farbod on 6/3/25.
 //
 
 import Foundation
 
-public struct SliceModel: Identifiable, Sendable, Hashable {
+public struct SliceResponseModel: Codable, Hashable {
     public let id: String
     public let label: String
     public let value: Double
@@ -37,4 +37,3 @@ public struct SliceModel: Identifiable, Sendable, Hashable {
     }
 }
 
-extension SliceModel: Codable {}

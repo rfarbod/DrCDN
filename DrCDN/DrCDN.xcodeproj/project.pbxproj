@@ -12,6 +12,7 @@
 		2758AE522DE3495100E45D18 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A19F342DDA45B80018CBC2 /* SwiftUI.framework */; };
 		2758AE5F2DE3495200E45D18 /* MonitorLiveExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2758AE502DE3495100E45D18 /* MonitorLiveExtension.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2758AE8C2DE3575400E45D18 /* AppUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2758AE8B2DE3575400E45D18 /* AppUI */; };
+		3A16EA462DEF31B900EB6A16 /* AppDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 3A16EA452DEF31B900EB6A16 /* AppDomain */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A16EA462DEF31B900EB6A16 /* AppDomain in Frameworks */,
 				2727BCA72DD20CF2004D8699 /* AppUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,6 +223,7 @@
 			name = DrCDN;
 			packageProductDependencies = (
 				2727BCA62DD20CF2004D8699 /* AppUI */,
+				3A16EA452DEF31B900EB6A16 /* AppDomain */,
 			);
 			productName = DrCDN;
 			productReference = 27D5BEB42DD1FD2F0016B95B /* DrCDN.app */;
@@ -309,6 +312,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				2727BCA52DD20CF2004D8699 /* XCLocalSwiftPackageReference "../AppUI" */,
+				3A16EA442DEF31B900EB6A16 /* XCLocalSwiftPackageReference "../AppDomain" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 27D5BEB52DD1FD2F0016B95B /* Products */;
@@ -604,7 +608,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aftermath.DrCDN.DrCDN;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -644,7 +648,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aftermath.DrCDN.DrCDN;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -799,6 +803,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../AppUI;
 		};
+		3A16EA442DEF31B900EB6A16 /* XCLocalSwiftPackageReference "../AppDomain" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../AppDomain;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -810,6 +818,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2727BCA52DD20CF2004D8699 /* XCLocalSwiftPackageReference "../AppUI" */;
 			productName = AppUI;
+		};
+		3A16EA452DEF31B900EB6A16 /* AppDomain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppDomain;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

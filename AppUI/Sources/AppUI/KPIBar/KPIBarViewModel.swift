@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct KPIBarViewModel: Sendable, Codable, Hashable, Equatable {
+public struct KPIBarViewModel: Sendable, Hashable, Equatable {
     public let id: String? = UUID().uuidString
     public let title: String
     public let subtitle: String
@@ -32,3 +32,5 @@ public struct KPIBarViewModel: Sendable, Codable, Hashable, Equatable {
 public extension KPIBarViewModel {
     static let `default`: KPIBarViewModel = .init(title: "", subtitle: "", chartData: nil)
 }
+
+extension KPIBarViewModel: Codable {}

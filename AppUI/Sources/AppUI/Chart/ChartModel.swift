@@ -5,7 +5,7 @@
 //  Created by Farbod Rahiminik on 5/11/25.
 //
 
-public struct ChartModel: Sendable, Codable, Hashable {
+public struct ChartModel: Sendable, Hashable {
     public var xValues: [Double]
     public var yValues: [Double]
     
@@ -24,3 +24,5 @@ public extension ChartModel {
         yValues: []
     )
 }
+
+extension ChartModel: Codable {}

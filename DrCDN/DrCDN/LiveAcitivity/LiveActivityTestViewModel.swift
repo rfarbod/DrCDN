@@ -5,6 +5,7 @@
 //  Created by Farbod Rahiminik on 5/31/25.
 //
 
+import AppDomain
 import AppUI
 import Combine
 import Foundation
@@ -21,7 +22,7 @@ final class LiveActivityTestViewModel: ObservableObject {
     }
     
     func getLiveActivityTypes() {
-        #if os(iOS)
+#if os(iOS)
         loadItems()
         
         model.types = [
@@ -62,28 +63,32 @@ final class LiveActivityTestViewModel: ObservableObject {
                 }
             )
         ]
-        #endif
+#endif
     }
     
     func loadItems() {
         guard let url = Bundle.main.url(
-                forResource: "DashboardLayout",
-                withExtension: "json"
+            forResource: "DashboardLayout",
+            withExtension: "json"
         ) else {
             print("⚠️ DashboardLayout.json not found in bundle")
             return
         }
-
-        DispatchQueue.global(qos: .userInitiated).async {
+        
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let self else { return }
+            
             do {
                 let data = try Data(contentsOf: url)
-                let wrappers = try JSONDecoder().decode(
-                    [KPIWrapperCodableModel].self,
+                let wrappers: [KPIWrapperResponseModel] = try JSONDecoder().decode(
+                    [KPIWrapperResponseModel].self,
                     from: data
                 )
-
+                
+                let mappedWrappers = self.mapToKPIWrapperModel(wrappers)
+                
                 DispatchQueue.main.async {
-                    let model = HomeModel(kpiItems: wrappers.map({ model in
+                    let model = HomeModel(kpiItems: mappedWrappers.map({ model in
                         return .init(type: model.type)
                     }))
                     
@@ -91,7 +96,7 @@ final class LiveActivityTestViewModel: ObservableObject {
                         switch model.type {
                         case .kpiBar(let kPIBarViewModel):
                             self.model.kpiBar = kPIBarViewModel
-                       
+                            
                         case .kpiPie(let kPIPieModel):
                             self.model.kpiPie = kPIPieModel
                             
@@ -109,7 +114,106 @@ final class LiveActivityTestViewModel: ObservableObject {
         }
     }
     
-    #if os(iOS)
+    private func mapToKPIWrapperModel(_ model: [KPIWrapperResponseModel]) -> [KPIWrapperModel] {
+        var mappedModel: [KPIWrapperModel] = []
+        model.forEach { response in
+            switch response.type {
+            case .kpiBar(let barResponse):
+                let wrapper = KPIWrapperModel(
+                    type: .kpiBar(
+                        KPIBarViewModel(
+                            title: barResponse.title,
+                            subtitle: barResponse.subtitle,
+                            chartData: ChartModel.init(
+                                xValues: barResponse.chartData?.xValues ?? [],
+                                yValues: barResponse.chartData?.yValues ?? []
+                            )
+                        )
+                    )
+                )
+                mappedModel.append(wrapper)
+                
+            case .kpiCard(let cardResponse):
+                let wrapper = KPIWrapperModel(
+                    type: .kpiCard(
+                        KPICardModel(
+                            title: cardResponse.title,
+                            leftValue: cardResponse.leftValue,
+                            leftUnit: cardResponse.leftUnit,
+                            rightValue: cardResponse.rightValue,
+                            rightUnit: cardResponse.rightUnit,
+                            chartData: ChartModel.init(
+                                xValues: cardResponse.chartData?.xValues ?? [],
+                                yValues: cardResponse.chartData?.yValues ?? []
+                            )
+                        )
+                    )
+                )
+                mappedModel.append(wrapper)
+                
+            case .kpiComparisson(let comparisonResponse):
+                let wrapper = KPIWrapperModel(
+                    type: .kpiComparisson(
+                        KPIComparisonModel(
+                            title: comparisonResponse.title,
+                            subtitle: comparisonResponse.subtitle,
+                            series: comparisonResponse.series.map { chartArray in
+                                chartArray.map { innerResponse in
+                                    ChartModel.init(
+                                        xValues: innerResponse.xValues,
+                                        yValues: innerResponse.yValues
+                                    )
+                                }
+                            }
+                        )
+                    )
+                )
+                mappedModel.append(wrapper)
+                
+            case .kpiList(let listResponse):
+                let wrapper = KPIWrapperModel(
+                    type: .kpiList(
+                        KPIListModel(
+                            listTitle: listResponse.listTitle,
+                            items: listResponse.items.map { item in
+                                ListItem.init(title: item.title, value: item.value)
+                            }
+                        )
+                    )
+                )
+                mappedModel.append(wrapper)
+                
+            case .kpiPie(let pieResponse):
+                let wrapper = KPIWrapperModel(
+                    type: .kpiPie(
+                        KPIPieModel(
+                            title: pieResponse.title,
+                            subtitle: pieResponse.subtitle,
+                            chartData: .init(
+                                slices: pieResponse.chartData?.slices.map({ response in
+                                    SliceModel.init(
+                                        label: response.label,
+                                        value: response.value,
+                                        color: response.color,
+                                        angularInset: response.angularInset,
+                                        opacity: response.opacity,
+                                        cornerRadius: response.cornerRadius,
+                                        innerRadius: response.innerRadius
+                                    )
+                                }) ?? [],
+                                opacityRation: pieResponse.chartData?.opacityRatio ?? 0
+                            )
+                        )
+                    )
+                )
+                mappedModel.append(wrapper)
+            }
+        }
+        
+        return mappedModel
+    }
+    
+#if os(iOS)
     func startLiveActivity(
         barModel: KPIBarViewModel?,
         pieModel: KPIPieModel?,
@@ -134,15 +238,15 @@ final class LiveActivityTestViewModel: ObservableObject {
             print("Error starting Live Activity: \(error)")
         }
     }
-    #endif
+#endif
     
-    #if os(iOS)
+#if os(iOS)
     func endAllLiveActivities() {
         for activity in Activity<MonitorLiveAttributes>.activities {
-                Task {
-                    await activity.end(nil, dismissalPolicy: .immediate)
-                }
+            Task {
+                await activity.end(nil, dismissalPolicy: .immediate)
             }
+        }
     }
-    #endif
+#endif
 }
