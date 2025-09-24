@@ -5,6 +5,7 @@
 //  Created by Farbod Rahiminik on 9/24/25.
 //
 
+import AppFoundation
 import SwiftUI
 
 public struct DRTextField: View {
@@ -32,9 +33,15 @@ public struct DRTextField: View {
         return isFocused ? .secondaryAccent : .textFieldBorder
     }
 
-    public init(model: DRTextFieldModel) {
+    public init(model: DRTextFieldModel, validator: any ValidatorProtocol = AppValidationService()) {
         self.model = model
-        _viewModel = StateObject(wrappedValue: DRTextFieldViewModel(validationRule: model.validationRule))
+        _viewModel = StateObject(
+            wrappedValue: DRTextFieldViewModel(
+                validationRule: model.validationRule,
+                defaultErrorText: model.errorText,
+                validator: validator
+            )
+        )
     }
 
     public var body: some View {
@@ -47,7 +54,7 @@ public struct DRTextField: View {
                 fieldContent
 
                 if viewModel.isError {
-                    Text(model.errorText)
+                    Text(viewModel.errorMessage ?? model.errorText)
                         .font(.system(size: Constants.errorFontSize, weight: .regular))
                         .foregroundStyle(Color.textFieldError)
                         .transition(.opacity)
@@ -56,8 +63,13 @@ public struct DRTextField: View {
         }
         .animation(.easeInOut(duration: 0.2), value: viewModel.isError)
         .animation(.easeInOut(duration: 0.2), value: isFocused)
-        .onChange(of: model.validationRule) { _, newRule in
-            viewModel.configure(validationRule: newRule)
+        .onChange(of: model.validationRule) { oldRule, newRule in
+            guard oldRule != newRule else { return }
+            viewModel.configure(validationRule: newRule, defaultErrorText: model.errorText)
+        }
+        .onChange(of: model.errorText) { oldText, newText in
+            guard oldText != newText else { return }
+            viewModel.configure(validationRule: model.validationRule, defaultErrorText: newText)
         }
     }
 
@@ -110,7 +122,8 @@ public struct DRTextField: View {
             icon: AppUIAssets.textFieldUser,
             placeholder: AppUILocalized.DrTextField.Placeholder.userName,
             errorText: AppUILocalized.DrTextField.Error.default,
-            validationRule: .string(minLength: 4)
+            validationRule: .password(minLength: 12),
+            keyboardType: .default
         )
     )
     .padding()

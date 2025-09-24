@@ -4,6 +4,8 @@
 //
 //  Created by Farbod Rahiminik on 9/24/25.
 //
+
+import AppFoundation
 import Foundation
 import SwiftUI
 
@@ -11,17 +13,28 @@ import SwiftUI
 public final class DRTextFieldViewModel: ObservableObject {
     @Published public private(set) var text: String = ""
     @Published public private(set) var isError: Bool = false
+    @Published public private(set) var errorMessage: String?
 
     public var onCommit: ((String) -> Void)?
-    private var validationRule: TextFieldValidationRule?
 
-    public init(validationRule: TextFieldValidationRule? = nil) {
+    private var validationRule: TextFieldValidationRule?
+    private var defaultErrorText: String
+    private let validator: any ValidatorProtocol
+
+    public init(
+        validationRule: TextFieldValidationRule? = nil,
+        defaultErrorText: String,
+        validator: any ValidatorProtocol = AppValidationService()
+    ) {
         self.validationRule = validationRule
+        self.defaultErrorText = defaultErrorText
+        self.validator = validator
         validate()
     }
 
-    public func configure(validationRule: TextFieldValidationRule?) {
+    public func configure(validationRule: TextFieldValidationRule?, defaultErrorText: String) {
         self.validationRule = validationRule
+        self.defaultErrorText = defaultErrorText
         validate()
     }
 
@@ -31,9 +44,9 @@ public final class DRTextFieldViewModel: ObservableObject {
         validate()
     }
 
-    public func setError(_ flag: Bool) {
-        guard isError != flag else { return }
+    public func setError(_ flag: Bool, message: String? = nil) {
         isError = flag
+        errorMessage = flag ? (message ?? defaultErrorText) : nil
     }
 
     public func commit() {
@@ -46,29 +59,11 @@ public final class DRTextFieldViewModel: ObservableObject {
             return
         }
 
-        let isValid: Bool
-
-        switch rule {
-        case .string(let minLength):
-            isValid = text.count >= minLength
-        case .phoneNumber:
-            isValid = DRTextFieldViewModel.phonePredicate.evaluate(with: text)
-        case .email:
-            isValid = DRTextFieldViewModel.emailPredicate.evaluate(with: text)
+        let result = validator.validate(text, rule: rule, defaultError: defaultErrorText)
+        if result.isValid {
+            setError(false)
+        } else {
+            setError(true, message: result.errorMessage)
         }
-
-        setError(!isValid)
     }
-}
-
-private extension DRTextFieldViewModel {
-    static let phonePredicate: NSPredicate = {
-        let pattern = "^\\+?[0-9]{7,15}$"
-        return NSPredicate(format: "SELF MATCHES %@", pattern)
-    }()
-
-    static let emailPredicate: NSPredicate = {
-        let pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        return NSPredicate(format: "SELF MATCHES %@", pattern)
-    }()
 }

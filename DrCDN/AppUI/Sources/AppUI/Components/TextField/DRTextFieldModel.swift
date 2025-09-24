@@ -6,15 +6,12 @@
 //
 
 import Foundation
+import AppFoundation
 #if canImport(UIKit)
 import UIKit
 #endif
 
-public enum TextFieldValidationRule: Equatable {
-    case string(minLength: Int)
-    case phoneNumber
-    case email
-}
+public typealias TextFieldValidationRule = ValidationRule
 
 public struct DRTextFieldModel {
     public let title: String
