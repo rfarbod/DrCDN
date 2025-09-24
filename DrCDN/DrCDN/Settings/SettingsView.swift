@@ -12,24 +12,28 @@ struct SettingsView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                ForEach(viewModel.model.settings) { setting in
-                    NavigationLink {
-                        LiveActivityTestView(viewModel: .init(model: .default))
-                    } label: {
-                        SettingsRowView(model: setting)
-                            .frame(maxWidth: .infinity)
+            ZStack {
+                Image(.primaryBackground)
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+                
+                ScrollView {
+                    ForEach(viewModel.model.settings) { setting in
+                        NavigationLink {
+                            LiveActivityTestView(viewModel: .init(model: .default))
+                        } label: {
+                            SettingsRowView(model: setting)
+                                .frame(maxWidth: .infinity)
+                        }
                     }
+                    .padding()
+                    .onAppear {
+                        viewModel.getSettingsItems()
+                    }
+                    .frame(maxWidth: .infinity)
                 }
-                .padding()
-                .onAppear {
-                    viewModel.getSettingsItems()
-                }
-                .frame(maxWidth: .infinity)
-                .background(Color.primaryBackground)
             }
-            .background(Color.primaryBackground)
         }
-        .background(Color.primaryBackground)
     }
 }

@@ -25,11 +25,18 @@ public typealias AssetImageTypeAlias = ImageAsset.Image
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 public enum DrCDNAssets {
   public static let accentColor = ColorAsset(name: "AccentColor")
+  public static let bell = ImageAsset(name: "bell")
+  public static let home = ImageAsset(name: "home")
   public static let logo = ImageAsset(name: "logo")
+  public static let messages = ImageAsset(name: "messages")
+  public static let minimalLogo = ImageAsset(name: "minimalLogo")
+  public static let network = ImageAsset(name: "network")
   public static let onboarding1 = ImageAsset(name: "onboarding1")
   public static let onboarding2 = ImageAsset(name: "onboarding2")
   public static let onboarding3 = ImageAsset(name: "onboarding3")
   public static let primaryBackground = ImageAsset(name: "primaryBackground")
+  public static let profile = ImageAsset(name: "profile")
+  public static let sources = ImageAsset(name: "sources")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
