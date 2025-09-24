@@ -11,7 +11,7 @@ public struct OnboardingStepView: View {
     private enum Constants {
         static let verticalSpacing: CGFloat = 28
         static let bodySpacing: CGFloat = 10
-        static let imageHeight: CGFloat = 210
+        static let imageHeight: CGFloat = 250
         static let contentWidth: CGFloat = 255
         static let descriptionWidth: CGFloat = 240
         static let titleFontSize: CGFloat = 18
@@ -36,12 +36,12 @@ public struct OnboardingStepView: View {
                 Text(model.title)
                     .font(.system(size: Constants.titleFontSize, weight: .semibold))
                     .foregroundStyle(Color.textHigh)
-                    .multilineTextAlignment(.center)
+                    .multilineTextAlignment(.leading)
 
                 Text(model.description)
                     .font(.system(size: Constants.descriptionFontSize))
                     .foregroundStyle(Color.textMed)
-                    .multilineTextAlignment(.center)
+                    .multilineTextAlignment(.leading)
                     .frame(maxWidth: Constants.descriptionWidth)
             }
 

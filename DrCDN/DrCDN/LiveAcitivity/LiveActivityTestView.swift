@@ -6,7 +6,6 @@
 //
 
 import AppUI
-import SwiftUI
 
 struct LiveActivityTestView: View {
     @ObservedObject var viewModel: LiveActivityTestViewModel

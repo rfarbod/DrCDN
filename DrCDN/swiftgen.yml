@@ -44,3 +44,11 @@ strings:
           publicAccess: true
           bundle: Bundle.module
         output: AppFoundation/Sources/AppFoundation/Generated/Strings.generated.swift
+  - inputs:
+      - DrCDN/Resources/Strings/en.lproj/Localizable.strings
+    outputs:
+      - templateName: structured-swift5
+        params:
+          enumName: DrCDNLocalized
+          publicAccess: true
+        output: DrCDN/Generated/Strings.generated.swift

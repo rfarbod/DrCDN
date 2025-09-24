@@ -21,6 +21,7 @@ public typealias AssetColorTypeAlias = ColorAsset.Color
 // MARK: - Asset Catalogs
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
+@MainActor
 public enum AppUIAssets {
   public static let cardBG = ColorAsset(name: "cardBG")
   public static let primaryAccent = ColorAsset(name: "primaryAccent")

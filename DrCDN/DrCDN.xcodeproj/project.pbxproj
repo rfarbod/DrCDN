@@ -12,6 +12,8 @@
 		2758AE522DE3495100E45D18 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A19F342DDA45B80018CBC2 /* SwiftUI.framework */; };
 		2758AE5F2DE3495200E45D18 /* MonitorLiveExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2758AE502DE3495100E45D18 /* MonitorLiveExtension.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2758AE8C2DE3575400E45D18 /* AppUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2758AE8B2DE3575400E45D18 /* AppUI */; };
+		27DE97192E8411FC00ACC2C1 /* FlowStacks in Frameworks */ = {isa = PBXBuildFile; productRef = 27DE97182E8411FC00ACC2C1 /* FlowStacks */; };
+		27DE971B2E8411FC00ACC2C1 /* FlowStacksForTCACoordinators in Frameworks */ = {isa = PBXBuildFile; productRef = 27DE971A2E8411FC00ACC2C1 /* FlowStacksForTCACoordinators */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +128,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2727BCA72DD20CF2004D8699 /* AppUI in Frameworks */,
+				27DE971B2E8411FC00ACC2C1 /* FlowStacksForTCACoordinators in Frameworks */,
+				27DE97192E8411FC00ACC2C1 /* FlowStacks in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +231,8 @@
 			name = DrCDN;
 			packageProductDependencies = (
 				2727BCA62DD20CF2004D8699 /* AppUI */,
+				27DE97182E8411FC00ACC2C1 /* FlowStacks */,
+				27DE971A2E8411FC00ACC2C1 /* FlowStacksForTCACoordinators */,
 			);
 			productName = DrCDN;
 			productReference = 27D5BEB42DD1FD2F0016B95B /* DrCDN.app */;
@@ -310,11 +316,13 @@
 			knownRegions = (
 				en,
 				Base,
+				"en 2",
 			);
 			mainGroup = 27D5BEAB2DD1FD2F0016B95B;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				2727BCA52DD20CF2004D8699 /* XCLocalSwiftPackageReference "../AppUI" */,
+				27DE97172E8411FC00ACC2C1 /* XCRemoteSwiftPackageReference "FlowStacks" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 27D5BEB52DD1FD2F0016B95B /* Products */;
@@ -807,6 +815,17 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		27DE97172E8411FC00ACC2C1 /* XCRemoteSwiftPackageReference "FlowStacks" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnpatrickmorgan/FlowStacks";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.11;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		2727BCA62DD20CF2004D8699 /* AppUI */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -816,6 +835,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2727BCA52DD20CF2004D8699 /* XCLocalSwiftPackageReference "../AppUI" */;
 			productName = AppUI;
+		};
+		27DE97182E8411FC00ACC2C1 /* FlowStacks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 27DE97172E8411FC00ACC2C1 /* XCRemoteSwiftPackageReference "FlowStacks" */;
+			productName = FlowStacks;
+		};
+		27DE971A2E8411FC00ACC2C1 /* FlowStacksForTCACoordinators */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 27DE97172E8411FC00ACC2C1 /* XCRemoteSwiftPackageReference "FlowStacks" */;
+			productName = FlowStacksForTCACoordinators;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

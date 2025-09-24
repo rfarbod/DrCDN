@@ -1,2 +1,8 @@
-// The Swift Programming Language
-// https://docs.swift.org/swift-book
+//
+//  AppUI.swift
+//  AppUI
+//
+//  Created by Farbod Rahiminik on 9/24/25.
+//
+
+@_exported import SwiftUI

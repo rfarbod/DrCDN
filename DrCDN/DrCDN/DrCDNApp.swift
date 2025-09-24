@@ -12,7 +12,7 @@ import SwiftUI
 struct DrCDNApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppCoordinatorView(viewModel: .init(hasCompletedOnboarding: false))
         }
     }
 }

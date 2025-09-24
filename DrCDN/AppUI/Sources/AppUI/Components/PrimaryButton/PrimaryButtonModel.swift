@@ -2,7 +2,7 @@
 //  PrimaryButtonModel.swift
 //  AppUI
 //
-//  Created by Codex on 9/24/25.
+//  Created by Farbod Rahiminik on 9/24/25.
 //
 
 import Foundation

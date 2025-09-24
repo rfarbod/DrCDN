@@ -2,7 +2,7 @@
 //  PrimaryButton.swift
 //  AppUI
 //
-//  Created by Codex on 9/24/25.
+//  Created by Farbod Rahimink on 9/24/25.
 //
 
 import SwiftUI

@@ -8,7 +8,6 @@
 import AppUI
 import ActivityKit
 import WidgetKit
-import SwiftUI
 
 struct MonitorLiveLiveActivity: Widget {
     var body: some WidgetConfiguration {

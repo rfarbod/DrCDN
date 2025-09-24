@@ -6,7 +6,6 @@
 //
 
 import AppUI
-import SwiftUI
 
 struct SettingsView: View {
     @ObservedObject var viewModel: SettingsViewModel
