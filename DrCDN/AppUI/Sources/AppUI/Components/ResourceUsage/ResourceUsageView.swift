@@ -75,7 +75,7 @@ public struct ResourceUsageView: View {
                 .fill(Color.black.opacity(0.35))
                 .frame(width: Constants.iconContainerSize, height: Constants.iconContainerSize)
                 .overlay(
-                    Image(asset: model.icon)
+                    model.icon
                         .renderingMode(.template)
                         .resizable()
                         .scaledToFit()
@@ -126,19 +126,4 @@ public struct ResourceUsageView: View {
     private var changeColor: Color {
         model.changePercentage >= 0 ? Color.primaryGreen : Color.textFieldError
     }
-}
-
-#Preview("ResourceUsageView") {
-    ResourceUsageView(
-        model: .init(
-            title: "CPU Usage",
-            icon: AppUIAssets.textFieldUser,
-            usage: 47,
-            changePercentage: -4,
-            description: "3.8GHz | 12 Cores"
-        )
-    )
-    .padding()
-    .frame(width: 320)
-    .background(Color.black)
 }

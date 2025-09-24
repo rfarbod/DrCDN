@@ -6,17 +6,18 @@
 //
 
 import Foundation
+import SwiftUI
 
 public struct ResourceUsageModel {
     public let title: String
-    public let icon: SymbolAsset
+    public let icon: Image
     public let usage: Int
     public let changePercentage: Int
     public let description: String
 
     public init(
         title: String,
-        icon: SymbolAsset,
+        icon: Image,
         usage: Int,
         changePercentage: Int,
         description: String

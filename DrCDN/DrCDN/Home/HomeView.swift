@@ -42,9 +42,9 @@ struct HomeView: View {
     )
 
     private let resourceUsageModels: [ResourceUsageModel] = [
-        .init(title: "CPU Usage", icon: AppUIAssets.textFieldUser, usage: 47, changePercentage: 4, description: "3.8GHz | 12 Cores"),
-        .init(title: "Storage", icon: AppUIAssets.textFieldUser, usage: 69, changePercentage: -2, description: "16.4 GB / 24 GB"),
-        .init(title: "Network", icon: AppUIAssets.textFieldUser, usage: 69, changePercentage: -2, description: "16.4 GB / 24 GB")
+        .init(title: "CPU Usage", icon: DrCDNAssets.cpu.swiftUIImage, usage: 47, changePercentage: 4, description: "3.8GHz | 12 Cores"),
+        .init(title: "Storage", icon: DrCDNAssets.storage.swiftUIImage, usage: 69, changePercentage: -2, description: "16.4 GB / 24 GB"),
+        .init(title: "Network", icon: DrCDNAssets.storage.swiftUIImage, usage: 69, changePercentage: -2, description: "16.4 GB / 24 GB")
     ]
 
     private let processesModel = ProcessesModel(

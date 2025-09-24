@@ -26,6 +26,7 @@ public typealias AssetImageTypeAlias = ImageAsset.Image
 public enum DrCDNAssets {
   public static let accentColor = ColorAsset(name: "AccentColor")
   public static let bell = ImageAsset(name: "bell")
+  public static let cpu = ImageAsset(name: "cpu")
   public static let home = ImageAsset(name: "home")
   public static let logo = ImageAsset(name: "logo")
   public static let messages = ImageAsset(name: "messages")
@@ -37,6 +38,7 @@ public enum DrCDNAssets {
   public static let primaryBackground = ImageAsset(name: "primaryBackground")
   public static let profile = ImageAsset(name: "profile")
   public static let sources = ImageAsset(name: "sources")
+  public static let storage = ImageAsset(name: "storage")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
