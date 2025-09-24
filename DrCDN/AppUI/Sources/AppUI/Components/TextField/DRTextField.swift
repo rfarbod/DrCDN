@@ -87,6 +87,9 @@ public struct DRTextField: View {
                     .onSubmit { viewModel.commit() }
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
+#if canImport(UIKit)
+                    .keyboardType(model.keyboardType.uiValue)
+#endif
             }
         }
         .padding(.horizontal, Constants.fieldHorizontalInset)
