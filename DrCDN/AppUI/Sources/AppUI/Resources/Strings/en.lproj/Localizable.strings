@@ -1,3 +1,3 @@
 "drTextField.title.userName" = "User Name";
 "drTextField.placeholder.userName" = "Placeholder Text";
-"drTextField.error.default" = "Input is invalid";
+"drTextField.error.default" = "This is an input helper text.";

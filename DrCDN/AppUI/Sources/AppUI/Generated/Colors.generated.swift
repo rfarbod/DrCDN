@@ -21,6 +21,7 @@ public typealias AssetColorTypeAlias = ColorAsset.Color
 // MARK: - Asset Catalogs
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
+@MainActor
 public enum AppUIAssets {
   public static let cardBG = ColorAsset(name: "cardBG")
   public static let primaryAccent = ColorAsset(name: "primaryAccent")
@@ -30,6 +31,7 @@ public enum AppUIAssets {
   public static let tertiaryAccent = ColorAsset(name: "tertiaryAccent")
   public static let textFieldBackground = ColorAsset(name: "textFieldBackground")
   public static let textFieldBorder = ColorAsset(name: "textFieldBorder")
+  public static let textFieldError = ColorAsset(name: "textFieldError")
   public static let textFieldPlaceholder = ColorAsset(name: "textFieldPlaceholder")
   public static let textFieldTitle = ColorAsset(name: "textFieldTitle")
   public static let textFieldUser = SymbolAsset(name: "textFieldUser")

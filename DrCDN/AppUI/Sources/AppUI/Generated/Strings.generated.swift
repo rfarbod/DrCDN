@@ -12,8 +12,8 @@ import Foundation
 public enum AppUILocalized {
   public enum DrTextField {
     public enum Error {
-      /// Input is invalid
-      public static let `default` = AppUILocalized.tr("Localizable", "drTextField.error.default", fallback: "Input is invalid")
+      /// This is an input helper text.
+      public static let `default` = AppUILocalized.tr("Localizable", "drTextField.error.default", fallback: "This is an input helper text.")
     }
     public enum Placeholder {
       /// Placeholder Text
