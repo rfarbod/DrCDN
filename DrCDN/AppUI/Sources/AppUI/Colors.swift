@@ -21,4 +21,5 @@ public extension Color {
     static let textFieldPlaceholder = Color("textFieldPlaceholder", bundle: .module)
     static let textFieldTitle = Color("textFieldTitle", bundle: .module)
     static let textFieldError = Color("textFieldError", bundle: .module)
+    static let primaryGreen = Color("primaryGreen", bundle: .module)
 }

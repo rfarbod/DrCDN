@@ -35,3 +35,12 @@ strings:
           publicAccess: true
           bundle: Bundle.module
         output: AppUI/Sources/AppUI/Generated/Strings.generated.swift
+  - inputs:
+      - AppFoundation/Sources/AppFoundation/Resources/Strings/en.lproj/Localizable.strings
+    outputs:
+      - templateName: structured-swift5
+        params:
+          enumName: AppFoundationLocalized
+          publicAccess: true
+          bundle: Bundle.module
+        output: AppFoundation/Sources/AppFoundation/Generated/Strings.generated.swift

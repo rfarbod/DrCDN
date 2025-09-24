@@ -4,6 +4,7 @@
 //
 //  Created by Farbod Rahiminik on 9/24/25.
 //
+
 import Foundation
 
 public struct AppValidationService: ValidatorProtocol {
@@ -44,7 +45,7 @@ private extension AppValidationService {
 
     static func passwordValidationError(for value: String, minLength: Int) -> String? {
         guard value.count >= minLength else {
-            return "Password must be at least \(minLength) characters long."
+            return AppFoundationLocalized.Validation.Error.Password.length(minLength)
         }
 
         let categories: [CharacterSet] = [
@@ -61,16 +62,16 @@ private extension AppValidationService {
         }
 
         guard matchedCategories >= 3 else {
-            return "Password must include at least three of the following: uppercase letters, lowercase letters, numbers, special characters."
+            return AppFoundationLocalized.Validation.Error.Password.variety
         }
 
         let lowered = value.lowercased()
         guard !commonPasswords.contains(lowered) else {
-            return "Password is too common or appears in breach lists."
+            return AppFoundationLocalized.Validation.Error.Password.common
         }
 
         guard !isSequentialOrRepeated(lowered) else {
-            return "Password cannot contain obvious sequences or repeated patterns."
+            return AppFoundationLocalized.Validation.Error.Password.sequence
         }
 
         return nil

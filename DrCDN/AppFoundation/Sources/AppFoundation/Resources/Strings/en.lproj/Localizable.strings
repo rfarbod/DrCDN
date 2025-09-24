@@ -1,0 +1,5 @@
+"validation.error.generic" = "Invalid input";
+"validation.error.password.length" = "Password must be at least %d characters long.";
+"validation.error.password.variety" = "Password must include at least three of the following: uppercase letters, lowercase letters, numbers, special characters.";
+"validation.error.password.common" = "Password is too common or appears in breach lists.";
+"validation.error.password.sequence" = "Password cannot contain obvious sequences or repeated patterns.";
