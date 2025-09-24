@@ -1,0 +1,37 @@
+input_dir: .
+xcassets:
+  - inputs:
+      - DrCDN/Assets.xcassets
+    outputs:
+      - templateName: swift5
+        params:
+          enumName: DrCDNAssets
+          publicAccess: true
+        output: DrCDN/Generated/Assets.generated.swift
+  - inputs:
+      - MonitorLive/Assets.xcassets
+    outputs:
+      - templateName: swift5
+        params:
+          enumName: MonitorLiveAssets
+          publicAccess: true
+        output: MonitorLive/Generated/Assets.generated.swift
+  - inputs:
+      - AppUI/Sources/AppUI/Resources/Colors.xcassets
+    outputs:
+      - templateName: swift5
+        params:
+          enumName: AppUIAssets
+          publicAccess: true
+          bundle: Bundle.module
+        output: AppUI/Sources/AppUI/Generated/Colors.generated.swift
+strings:
+  - inputs:
+      - AppUI/Sources/AppUI/Resources/Strings/en.lproj/Localizable.strings
+    outputs:
+      - templateName: structured-swift5
+        params:
+          enumName: AppUILocalized
+          publicAccess: true
+          bundle: Bundle.module
+        output: AppUI/Sources/AppUI/Generated/Strings.generated.swift

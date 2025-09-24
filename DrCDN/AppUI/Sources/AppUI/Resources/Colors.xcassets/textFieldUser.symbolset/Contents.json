@@ -1,0 +1,15 @@
+{
+  "info": {
+    "version": 1,
+    "author": "xcode"
+  },
+  "symbols": [
+    {
+      "idiom": "universal",
+      "symbol": "person"
+    }
+  ],
+  "properties": {
+    "template-rendering-intent": "template"
+  }
+}

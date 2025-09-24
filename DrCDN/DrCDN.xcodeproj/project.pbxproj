@@ -59,6 +59,7 @@
 		27D5BEB42DD1FD2F0016B95B /* DrCDN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrCDN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D5BEC22DD1FD310016B95B /* DrCDNTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrCDNTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D5BECC2DD1FD310016B95B /* DrCDNUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrCDNUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		27DE96EE2E83B54600ACC2C1 /* AppUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AppUI; path = /Users/Farbod/DrCDN/DrCDN/AppUI; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -155,6 +156,7 @@
 		27D5BEAB2DD1FD2F0016B95B = {
 			isa = PBXGroup;
 			children = (
+				27DE96EE2E83B54600ACC2C1 /* AppUI */,
 				27D5BEB62DD1FD2F0016B95B /* DrCDN */,
 				27D5BEC52DD1FD310016B95B /* DrCDNTests */,
 				27D5BECF2DD1FD310016B95B /* DrCDNUITests */,
